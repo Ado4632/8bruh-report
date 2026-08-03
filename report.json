@@ -1,0 +1,83 @@
+{
+  "source": "Official Clash Royale API via RoyaleAPI proxy",
+  "generatedAt": "2026-08-03T14:24:21.866Z",
+  "leader10Weeks": {
+    "tag": "#LJ9QYC8Q2",
+    "name": "DiToL",
+    "points": 30900,
+    "weeksPlayed": 10
+  },
+  "heroesLastWeek": [
+    {
+      "tag": "#20PG0L9GRR",
+      "name": "Zot1z",
+      "fame": 3300,
+      "repairPoints": 0,
+      "points": 3300,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#PPL90J0VU",
+      "name": "позитив",
+      "fame": 3300,
+      "repairPoints": 0,
+      "points": 3300,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#8VPCQ8JG0",
+      "name": "Миочич",
+      "fame": 3250,
+      "repairPoints": 0,
+      "points": 3250,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#LQ2QPLPJJ",
+      "name": "Hit Boy",
+      "fame": 3200,
+      "repairPoints": 0,
+      "points": 3200,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#P0L0LQ09R",
+      "name": "Ермин 1-й",
+      "fame": 3200,
+      "repairPoints": 0,
+      "points": 3200,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    }
+  ],
+  "underplayedLastWeek": [
+    {
+      "tag": "#2LJYRPGL",
+      "name": "ФРЕДДИ КРЮГЕР",
+      "decksUsed": 0,
+      "points": 0
+    },
+    {
+      "tag": "#8VCJULR22",
+      "name": "BAYMAX",
+      "decksUsed": 12,
+      "points": 2150
+    },
+    {
+      "tag": "#G0JJVGPYC",
+      "name": "D@ulet_",
+      "decksUsed": 12,
+      "points": 2100
+    },
+    {
+      "tag": "#UG8PGLRYR",
+      "name": "Nature",
+      "decksUsed": 12,
+      "points": 2250
+    }
+  ]
+}
