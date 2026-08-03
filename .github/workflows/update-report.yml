@@ -1,0 +1,106 @@
+name: Mirror 8BRUH report
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every 30 minutes on Monday from 15:00 to 23:30 Astana time (UTC+5).
+    - cron: "*/30 10-18 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-8bruh-report
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download and validate report
+        env:
+          SOURCE_URL: https://8bruh-war-report.adisonstark.workers.dev/report
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          tmp_file="$(mktemp)"
+
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            --location \
+            --retry 5 \
+            --retry-all-errors \
+            --retry-delay 10 \
+            --connect-timeout 20 \
+            --max-time 90 \
+            "$SOURCE_URL" \
+            --output "$tmp_file"
+
+          jq -e '
+            (.generatedAt | type == "string") and
+            (.leader10Weeks | type == "object") and
+            (.leader10Weeks.name | type == "string") and
+            (.leader10Weeks.points | type == "number") and
+            (.heroesLastWeek | type == "array") and
+            (.underplayedLastWeek | type == "array")
+          ' "$tmp_file" > /dev/null
+
+          python3 - "$tmp_file" <<'PY'
+          import datetime as dt
+          import json
+          import sys
+
+          path = sys.argv[1]
+          with open(path, "r", encoding="utf-8") as file:
+              data = json.load(file)
+
+          value = data["generatedAt"]
+          generated = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+          now = dt.datetime.now(dt.timezone.utc)
+          age = now - generated
+
+          if age.total_seconds() < -300:
+              raise SystemExit(
+                  f"Report timestamp is in the future: generatedAt={value}"
+              )
+
+          if age > dt.timedelta(hours=72):
+              raise SystemExit(
+                  f"Report is stale: generatedAt={value}, age={age}"
+              )
+          PY
+
+          jq '{
+            source: (.source // null),
+            generatedAt,
+            leader10Weeks,
+            heroesLastWeek,
+            underplayedLastWeek
+          }' "$tmp_file" > report.json
+
+          jq . report.json
+
+      - name: Commit updated mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add report.json
+
+          if git diff --cached --quiet; then
+            echo "Report has not changed."
+            exit 0
+          fi
+
+          git commit -m "Update 8BRUH report"
+          git push
