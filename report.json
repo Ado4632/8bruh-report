@@ -1,107 +1,257 @@
 {
   "source": "Official Clash Royale API via RoyaleAPI proxy",
-  "generatedAt": "2026-08-24T10:45:55.829Z",
+  "generatedAt": "2026-08-31T10:45:05.342Z",
   "leader10Weeks": {
     "tag": "#LJ9QYC8Q2",
     "name": "DiToL",
-    "points": 30300,
+    "points": 29500,
     "weeksPlayed": 10
   },
   "heroesLastWeek": [
     {
       "tag": "#LJ9QYC8Q2",
       "name": "DiToL",
-      "fame": 3300,
+      "fame": 2350,
       "repairPoints": 0,
-      "points": 3300,
+      "points": 2350,
+      "decksUsed": 12,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#UJUC9PYCL",
+      "name": "Tatyano4ka",
+      "fame": 2150,
+      "repairPoints": 0,
+      "points": 2150,
+      "decksUsed": 12,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#PCL8RV0RJ",
+      "name": "Болат",
+      "fame": 2150,
+      "repairPoints": 0,
+      "points": 2150,
       "decksUsed": 16,
       "boatAttacks": 0
     },
     {
-      "tag": "#GR0V2YUQV",
-      "name": "назарбаев",
-      "fame": 3000,
+      "tag": "#YL0V9ULYQ",
+      "name": "Жумайсынба",
+      "fame": 2150,
       "repairPoints": 0,
-      "points": 3000,
-      "decksUsed": 16,
+      "points": 2150,
+      "decksUsed": 12,
       "boatAttacks": 0
     },
     {
-      "tag": "#8PJ8ULCGP",
-      "name": "Nokich",
-      "fame": 2950,
+      "tag": "#GQQYQY0V",
+      "name": "<c3>ШТОРМ",
+      "fame": 2100,
       "repairPoints": 0,
-      "points": 2950,
-      "decksUsed": 16,
-      "boatAttacks": 0
-    },
-    {
-      "tag": "#98LR2YU8",
-      "name": "Adison",
-      "fame": 2900,
-      "repairPoints": 0,
-      "points": 2900,
-      "decksUsed": 16,
-      "boatAttacks": 0
-    },
-    {
-      "tag": "#LQ2QPLPJJ",
-      "name": "Hit Boy",
-      "fame": 2900,
-      "repairPoints": 0,
-      "points": 2900,
+      "points": 2100,
       "decksUsed": 16,
       "boatAttacks": 0
     }
   ],
   "underplayedLastWeek": [
     {
-      "tag": "#G0JJVGPYC",
-      "name": "D@ulet_",
-      "decksUsed": 8,
-      "points": 1200
-    },
-    {
-      "tag": "#UG8PGLRYR",
-      "name": "Nature",
-      "decksUsed": 8,
-      "points": 1150
-    },
-    {
-      "tag": "#98UURURC8",
-      "name": "Dinmuhamed",
-      "decksUsed": 10,
-      "points": 1450
-    },
-    {
       "tag": "#PPL90J0VU",
       "name": "позитив",
-      "decksUsed": 10,
-      "points": 1450
+      "decksUsed": 1,
+      "points": 100
+    },
+    {
+      "tag": "#QJCYYGY2C",
+      "name": "☬ɪᴀ•ᴋʀᴜᴛᴏʏ",
+      "decksUsed": 4,
+      "points": 400
     },
     {
       "tag": "#YR0PUJJG8",
       "name": "✧ m4k4r｜夜光 ✨",
-      "decksUsed": 12,
-      "points": 1600
+      "decksUsed": 4,
+      "points": 500
     },
     {
-      "tag": "#GV0J0PR0C",
-      "name": "Аскоо",
-      "decksUsed": 12,
-      "points": 1650
+      "tag": "#2YV8UP2R",
+      "name": "НУРСУЛТАН",
+      "decksUsed": 4,
+      "points": 800
     },
     {
-      "tag": "#PCL8RV0RJ",
-      "name": "Болат",
-      "decksUsed": 13,
-      "points": 1550
+      "tag": "#98UURURC8",
+      "name": "Dinmuhamed",
+      "decksUsed": 6,
+      "points": 1200
     },
     {
       "tag": "#VQU09G0V8",
       "name": "medok",
+      "decksUsed": 6,
+      "points": 800
+    },
+    {
+      "tag": "#8YGYVRUU2",
+      "name": "⚽✨Amirhan",
+      "decksUsed": 8,
+      "points": 1300
+    },
+    {
+      "tag": "#2YYCGG98C",
+      "name": "AD1Lux",
+      "decksUsed": 8,
+      "points": 1050
+    },
+    {
+      "tag": "#G0JJVGPYC",
+      "name": "D@ulet_",
+      "decksUsed": 8,
+      "points": 1700
+    },
+    {
+      "tag": "#Q2CYC9PGJ",
+      "name": "G4eSHNik",
+      "decksUsed": 8,
+      "points": 1300
+    },
+    {
+      "tag": "#J8G0J0UQ8",
+      "name": "KAZAKHWWS",
+      "decksUsed": 8,
+      "points": 1100
+    },
+    {
+      "tag": "#RJL28QUL2",
+      "name": "Masters",
+      "decksUsed": 8,
+      "points": 1300
+    },
+    {
+      "tag": "#8PJ8ULCGP",
+      "name": "Nokich",
+      "decksUsed": 8,
+      "points": 1600
+    },
+    {
+      "tag": "#LQ9R0CV8P",
+      "name": "sermyyt",
+      "decksUsed": 8,
+      "points": 1200
+    },
+    {
+      "tag": "#PUCYPRLVC",
+      "name": "SHYBBKA",
+      "decksUsed": 8,
+      "points": 1450
+    },
+    {
+      "tag": "#L80UL2Q9V",
+      "name": "void",
+      "decksUsed": 8,
+      "points": 800
+    },
+    {
+      "tag": "#GR0V2YUQV",
+      "name": "назарбаев",
+      "decksUsed": 8,
+      "points": 1000
+    },
+    {
+      "tag": "#R99LYG98",
+      "name": "трахтенберг",
+      "decksUsed": 10,
+      "points": 1550
+    },
+    {
+      "tag": "#GV0J0PR0C",
+      "name": "Аскоо",
+      "decksUsed": 11,
+      "points": 900
+    },
+    {
+      "tag": "#8VPCQ8JG0",
+      "name": "Миочич",
+      "decksUsed": 11,
+      "points": 1550
+    },
+    {
+      "tag": "#98LR2YU8",
+      "name": "Adison",
+      "decksUsed": 12,
+      "points": 2100
+    },
+    {
+      "tag": "#QPQ00P99G",
+      "name": "Dako",
+      "decksUsed": 12,
+      "points": 1900
+    },
+    {
+      "tag": "#LJ9QYC8Q2",
+      "name": "DiToL",
+      "decksUsed": 12,
+      "points": 2350
+    },
+    {
+      "tag": "#99Y0Q82CQ",
+      "name": "Grand `",
+      "decksUsed": 12,
+      "points": 1750
+    },
+    {
+      "tag": "#LQ2QPLPJJ",
+      "name": "Hit Boy",
+      "decksUsed": 12,
+      "points": 1550
+    },
+    {
+      "tag": "#UJ2RGR9UJ",
+      "name": "Nellson",
+      "decksUsed": 12,
+      "points": 1800
+    },
+    {
+      "tag": "#2YVGR0QGU",
+      "name": "SnaKe230",
+      "decksUsed": 12,
+      "points": 1600
+    },
+    {
+      "tag": "#YQYVCU89G",
+      "name": "Tamer",
+      "decksUsed": 12,
+      "points": 1550
+    },
+    {
+      "tag": "#UJUC9PYCL",
+      "name": "Tatyano4ka",
+      "decksUsed": 12,
+      "points": 2150
+    },
+    {
+      "tag": "#YL0V9ULYQ",
+      "name": "Жумайсынба",
+      "decksUsed": 12,
+      "points": 2150
+    },
+    {
+      "tag": "#RU0CQ98PU",
+      "name": "Тренер Мурат",
+      "decksUsed": 12,
+      "points": 1800
+    },
+    {
+      "tag": "#YUP9U8G88",
+      "name": "CrazyDiamond",
+      "decksUsed": 14,
+      "points": 1700
+    },
+    {
+      "tag": "#RQRL8Y0",
+      "name": "Mirvs",
       "decksUsed": 15,
-      "points": 2400
+      "points": 1750
     }
   ]
 }
