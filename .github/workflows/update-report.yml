@@ -1,28 +1,40 @@
-name: Mirror 8BRUH report
+name: Sync 8BRUH report
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - 8bruh_report_ready
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-report.yml"
   schedule:
-    # Понедельник, каждые 30 минут с 15:00 до 23:30 по Астане (UTC+5)
-    - cron: "*/30 10-18 * * 1"
+    # Резервная синхронизация по понедельникам каждые 10 минут
+    # с 15:00 до 23:50 по Астане (UTC+5).
+    # Основной путь после настройки Worker: repository_dispatch сразу после Cron.
+    - cron: "*/10 10-18 * * 1"
 
 permissions:
   contents: write
 
 concurrency:
-  group: mirror-8bruh-report
+  group: sync-8bruh-report
   cancel-in-progress: true
 
 jobs:
-  mirror:
+  sync:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download and validate report
+      - name: Prepare and validate report
         env:
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_REPORT: ${{ toJson(github.event.client_payload.report) }}
           SOURCE_URL: https://8bruh-war-report.adisonstark.workers.dev/report
         shell: bash
         run: |
@@ -30,20 +42,16 @@ jobs:
 
           tmp_file="$(mktemp)"
 
-          curl \
-            --fail \
-            --silent \
-            --show-error \
-            --location \
-            --retry 5 \
-            --retry-all-errors \
-            --retry-delay 10 \
-            --connect-timeout 20 \
-            --max-time 90 \
-            "$SOURCE_URL" \
-            --output "$tmp_file"
+          if [[ "$EVENT_NAME" == "repository_dispatch" ]]; then
+            echo "Using report delivered by Cloudflare Worker."
+            printf '%s' "$DISPATCH_REPORT" > "$tmp_file"
+          else
+            echo "Using backup pull from Cloudflare Worker."
 
-          # Проверка обязательных полей исходного отчёта
+            curl               --fail               --silent               --show-error               --location               --retry 5               --retry-all-errors               --retry-delay 10               --connect-timeout 20               --max-time 90               "$SOURCE_URL"               --output "$tmp_file"
+          fi
+
+          # Проверяем структуру исходного отчёта.
           jq -e '
             (.generatedAt | type == "string") and
             (.leader10Weeks | type == "object") and
@@ -53,11 +61,15 @@ jobs:
             (.underplayedLastWeek | type == "array")
           ' "$tmp_file" > /dev/null
 
-          # Проверка свежести отчёта
+          # Принимаем только отчёт текущего дня по времени Астаны.
+          # До появления свежего понедельничного отчёта резервные запуски
+          # завершаются без ошибки и не перезаписывают report.json старыми данными.
+          set +e
           python3 - "$tmp_file" <<'PY'
           import datetime as dt
           import json
           import sys
+          from zoneinfo import ZoneInfo
 
           path = sys.argv[1]
 
@@ -68,52 +80,55 @@ jobs:
           generated = dt.datetime.fromisoformat(
               generated_at.replace("Z", "+00:00")
           )
-          now = dt.datetime.now(dt.timezone.utc)
-          age = now - generated
 
-          if age.total_seconds() < -300:
-              raise SystemExit(
-                  f"Report timestamp is in the future: generatedAt={generated_at}"
-              )
+          astana = ZoneInfo("Asia/Almaty")
+          generated_local = generated.astimezone(astana)
+          now_local = dt.datetime.now(dt.timezone.utc).astimezone(astana)
 
-          if age > dt.timedelta(hours=72):
-              raise SystemExit(
-                  f"Report is stale: generatedAt={generated_at}, age={age}"
+          if generated_local.date() != now_local.date():
+              print(
+                  "Report is not from today in Asia/Almaty: "
+                  f"generatedAt={generated_at}, "
+                  f"generated_local={generated_local.isoformat()}, "
+                  f"today={now_local.date()}"
               )
+              raise SystemExit(42)
+
+          print(
+              "Fresh report accepted: "
+              f"generatedAt={generated_at}, "
+              f"local={generated_local.isoformat()}"
+          )
           PY
+          freshness_status=$?
+          set -e
 
-          # Создаём публичное зеркало только с нужными полями.
-          # В underplayedLastWeek оставляем только игроков с 1–15 использованными колодами.
-          # Игроки с 0/16 исключаются как потенциальные новички.
+          if [[ "$freshness_status" -eq 42 ]]; then
+            echo "Fresh report is not available yet. Keeping current report.json."
+            exit 0
+          fi
+
+          if [[ "$freshness_status" -ne 0 ]]; then
+            exit "$freshness_status"
+          fi
+
+          # Публичное зеркало: сохраняем только нужные для постера поля
+          # и данные для проверки свежести. underplayedLastWeek переносится
+          # целиком, включая игроков с 0 использованных колод.
           jq '{
             source: (.source // null),
             generatedAt,
+            latestWar: (.latestWar // null),
             leader10Weeks,
             heroesLastWeek,
-            underplayedLastWeek: [
-              .underplayedLastWeek[]
-              | select(
-                  (.decksUsed | type == "number")
-                  and (.decksUsed >= 1)
-                  and (.decksUsed <= 15)
-                )
-            ]
+            underplayedLastWeek
           }' "$tmp_file" > report.json
 
-          # Финальная проверка созданного зеркала
           jq -e '
             (.generatedAt | type == "string") and
             (.leader10Weeks | type == "object") and
             (.heroesLastWeek | type == "array") and
-            (.underplayedLastWeek | type == "array") and
-            (
-              all(
-                .underplayedLastWeek[];
-                (.decksUsed | type == "number")
-                and (.decksUsed >= 1)
-                and (.decksUsed <= 15)
-              )
-            )
+            (.underplayedLastWeek | type == "array")
           ' report.json > /dev/null
 
           echo "Prepared report.json:"
