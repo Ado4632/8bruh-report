@@ -10,10 +10,11 @@ on:
       - main
     paths:
       - ".github/workflows/update-report.yml"
+      - ".sync-trigger"
   schedule:
     # Резервная синхронизация по понедельникам каждые 10 минут
     # с 15:00 до 23:50 по Астане (UTC+5).
-    # Основной путь после настройки Worker: repository_dispatch сразу после Cron.
+    # Основной путь без Cloudflare-плагина: push в .sync-trigger из ChatGPT.
     - cron: "*/10 10-18 * * 1"
 
 permissions:
@@ -46,12 +47,22 @@ jobs:
             echo "Using report delivered by Cloudflare Worker."
             printf '%s' "$DISPATCH_REPORT" > "$tmp_file"
           else
-            echo "Using backup pull from Cloudflare Worker."
+            echo "Using report pulled from Cloudflare Worker."
 
-            curl               --fail               --silent               --show-error               --location               --retry 5               --retry-all-errors               --retry-delay 10               --connect-timeout 20               --max-time 90               "$SOURCE_URL"               --output "$tmp_file"
+            curl \
+              --fail \
+              --silent \
+              --show-error \
+              --location \
+              --retry 5 \
+              --retry-all-errors \
+              --retry-delay 10 \
+              --connect-timeout 20 \
+              --max-time 90 \
+              "$SOURCE_URL" \
+              --output "$tmp_file"
           fi
 
-          # Проверяем структуру исходного отчёта.
           jq -e '
             (.generatedAt | type == "string") and
             (.leader10Weeks | type == "object") and
@@ -61,9 +72,6 @@ jobs:
             (.underplayedLastWeek | type == "array")
           ' "$tmp_file" > /dev/null
 
-          # Принимаем только отчёт текущего дня по времени Астаны.
-          # До появления свежего понедельничного отчёта резервные запуски
-          # завершаются без ошибки и не перезаписывают report.json старыми данными.
           set +e
           python3 - "$tmp_file" <<'PY'
           import datetime as dt
@@ -112,9 +120,6 @@ jobs:
             exit "$freshness_status"
           fi
 
-          # Публичное зеркало: сохраняем только нужные для постера поля
-          # и данные для проверки свежести. underplayedLastWeek переносится
-          # целиком, включая игроков с 0 использованных колод.
           jq '{
             source: (.source // null),
             generatedAt,
