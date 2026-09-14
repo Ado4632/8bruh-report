@@ -155,4 +155,17 @@ jobs:
           fi
 
           git commit -m "Update 8BRUH report"
-          git push
+
+          # Защита от гонки, если одновременно пришёл другой push/cron.
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+
+            echo "Push attempt $attempt failed; rebasing on origin/main..."
+            git fetch origin main
+            git rebase origin/main
+          done
+
+          echo "Failed to push report.json after 3 attempts."
+          exit 1
