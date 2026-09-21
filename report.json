@@ -1,21 +1,21 @@
 {
   "source": "Official Clash Royale API via RoyaleAPI proxy",
-  "generatedAt": "2026-09-14T10:45:19.166Z",
+  "generatedAt": "2026-09-21T10:45:41.638Z",
   "latestWar": {
-    "createdDate": "20260914T095305.000Z",
+    "createdDate": "20260921T095305.000Z",
     "seasonId": 136,
-    "sectionIndex": 0
+    "sectionIndex": 1
   },
   "leader10Weeks": {
-    "tag": "#LJ9QYC8Q2",
-    "name": "DiToL",
-    "points": 28650,
+    "tag": "#98LR2YU8",
+    "name": "Adison",
+    "points": 27950,
     "weeksPlayed": 10
   },
   "heroesLastWeek": [
     {
-      "tag": "#QJCYYGY2C",
-      "name": "☬ɪᴀ•ᴋʀᴜᴛᴏʏ",
+      "tag": "#9U2RJ2L2L",
+      "name": "Logan",
       "fame": 3400,
       "repairPoints": 0,
       "points": 3400,
@@ -23,8 +23,8 @@
       "boatAttacks": 0
     },
     {
-      "tag": "#UJ2RGR9UJ",
-      "name": "Nellson",
+      "tag": "#VJJQ0JYP",
+      "name": "Escon",
       "fame": 3350,
       "repairPoints": 0,
       "points": 3350,
@@ -32,26 +32,26 @@
       "boatAttacks": 0
     },
     {
-      "tag": "#PCL8RV0RJ",
-      "name": "Болат",
-      "fame": 3300,
+      "tag": "#Q2CYC9PGJ",
+      "name": "G4eSHNik",
+      "fame": 3200,
       "repairPoints": 0,
-      "points": 3300,
+      "points": 3200,
       "decksUsed": 16,
       "boatAttacks": 0
     },
     {
-      "tag": "#RU0CQ98PU",
-      "name": "Тренер Мурат",
-      "fame": 3300,
+      "tag": "#UG8PGLRYR",
+      "name": "Nature",
+      "fame": 3200,
       "repairPoints": 0,
-      "points": 3300,
+      "points": 3200,
       "decksUsed": 16,
       "boatAttacks": 0
     },
     {
-      "tag": "#98LR2YU8",
-      "name": "Adison",
+      "tag": "#PUCYPRLVC",
+      "name": "SHYBBKA",
       "fame": 3200,
       "repairPoints": 0,
       "points": 3200,
@@ -61,57 +61,75 @@
   ],
   "underplayedLastWeek": [
     {
-      "tag": "#YR0PUJJG8",
-      "name": "✧ m4k4r｜夜光 ✨",
+      "tag": "#QJCYYGY2C",
+      "name": "☬ɪᴀ•ᴋʀᴜᴛᴏʏ",
       "decksUsed": 0,
       "points": 0
     },
     {
-      "tag": "#2YYCGG98C",
-      "name": "AD1Lux",
+      "tag": "#LJ9QYC8Q2",
+      "name": "DiToL",
       "decksUsed": 0,
       "points": 0
     },
     {
-      "tag": "#2Y2LQCCLQ",
-      "name": "HASHIRAMA",
-      "decksUsed": 0,
-      "points": 0
+      "tag": "#L02YGJQRC",
+      "name": "Adison 2.0",
+      "decksUsed": 4,
+      "points": 900
     },
     {
-      "tag": "#VG089LJY8",
-      "name": "nyrlan",
-      "decksUsed": 8,
-      "points": 1500
+      "tag": "#PPL90J0VU",
+      "name": "позитив",
+      "decksUsed": 9,
+      "points": 1700
     },
     {
-      "tag": "#JCVVVYVU9",
-      "name": "AIDOSS",
+      "tag": "#UUV8L0GU2",
+      "name": "magik⅔",
+      "decksUsed": 11,
+      "points": 1900
+    },
+    {
+      "tag": "#L80UL2Q9V",
+      "name": "void",
+      "decksUsed": 11,
+      "points": 1350
+    },
+    {
+      "tag": "#YUP9U8G88",
+      "name": "CrazyDiamond",
       "decksUsed": 12,
-      "points": 1950
+      "points": 2200
     },
     {
-      "tag": "#G0JJVGPYC",
-      "name": "D@ulet_",
+      "tag": "#VCJLPC9GG",
+      "name": "jove",
       "decksUsed": 12,
-      "points": 1800
+      "points": 2000
     },
     {
-      "tag": "#UG8PGLRYR",
-      "name": "Nature",
-      "decksUsed": 12,
-      "points": 2500
+      "tag": "#2YVGR0QGU",
+      "name": "SnaKe230",
+      "decksUsed": 13,
+      "points": 2250
     },
     {
-      "tag": "#LQ9R0CV8P",
-      "name": "sermyyt",
-      "decksUsed": 12,
-      "points": 2050
+      "tag": "#YL0V9ULYQ",
+      "name": "Жумайсынба",
+      "decksUsed": 13,
+      "points": 1900
     },
     {
       "tag": "#8VPCQ8JG0",
       "name": "Миочич",
-      "decksUsed": 12,
+      "decksUsed": 13,
+      "points": 1800
+    },
+    {
+      "tag": "#8YGYVRUU2",
+      "name": "⚽✨Amirhan",
+      "decksUsed": 14,
       "points": 1800
     }
   ]
