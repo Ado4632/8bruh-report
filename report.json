@@ -1,136 +1,106 @@
 {
   "source": "Official Clash Royale API via RoyaleAPI proxy",
-  "generatedAt": "2026-09-21T10:45:41.638Z",
+  "generatedAt": "2026-09-28T10:46:07.447Z",
   "latestWar": {
-    "createdDate": "20260921T095305.000Z",
+    "createdDate": "20260928T095519.000Z",
     "seasonId": 136,
-    "sectionIndex": 1
+    "sectionIndex": 2
   },
   "leader10Weeks": {
     "tag": "#98LR2YU8",
     "name": "Adison",
-    "points": 27950,
+    "points": 28250,
     "weeksPlayed": 10
   },
   "heroesLastWeek": [
     {
-      "tag": "#9U2RJ2L2L",
-      "name": "Logan",
-      "fame": 3400,
+      "tag": "#RQRL8Y0",
+      "name": "Mirvs",
+      "fame": 3300,
       "repairPoints": 0,
-      "points": 3400,
-      "decksUsed": 16,
-      "boatAttacks": 0
-    },
-    {
-      "tag": "#VJJQ0JYP",
-      "name": "Escon",
-      "fame": 3350,
-      "repairPoints": 0,
-      "points": 3350,
-      "decksUsed": 16,
-      "boatAttacks": 0
-    },
-    {
-      "tag": "#Q2CYC9PGJ",
-      "name": "G4eSHNik",
-      "fame": 3200,
-      "repairPoints": 0,
-      "points": 3200,
+      "points": 3300,
       "decksUsed": 16,
       "boatAttacks": 0
     },
     {
       "tag": "#UG8PGLRYR",
       "name": "Nature",
-      "fame": 3200,
+      "fame": 3300,
       "repairPoints": 0,
-      "points": 3200,
+      "points": 3300,
       "decksUsed": 16,
       "boatAttacks": 0
     },
     {
-      "tag": "#PUCYPRLVC",
-      "name": "SHYBBKA",
-      "fame": 3200,
+      "tag": "#LQ9R0CV8P",
+      "name": "sermyyt",
+      "fame": 3300,
       "repairPoints": 0,
-      "points": 3200,
+      "points": 3300,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#2YVGR0QGU",
+      "name": "SnaKe230",
+      "fame": 3300,
+      "repairPoints": 0,
+      "points": 3300,
+      "decksUsed": 16,
+      "boatAttacks": 0
+    },
+    {
+      "tag": "#PRJ9J2JGR",
+      "name": "The_Voi:D",
+      "fame": 3300,
+      "repairPoints": 0,
+      "points": 3300,
       "decksUsed": 16,
       "boatAttacks": 0
     }
   ],
   "underplayedLastWeek": [
     {
-      "tag": "#QJCYYGY2C",
-      "name": "☬ɪᴀ•ᴋʀᴜᴛᴏʏ",
+      "tag": "#2YV8UP2R",
+      "name": "НУРСУЛТАН",
       "decksUsed": 0,
       "points": 0
     },
     {
-      "tag": "#LJ9QYC8Q2",
-      "name": "DiToL",
-      "decksUsed": 0,
-      "points": 0
-    },
-    {
-      "tag": "#L02YGJQRC",
-      "name": "Adison 2.0",
+      "tag": "#VVUR8U9VC",
+      "name": "meraksess",
       "decksUsed": 4,
       "points": 900
     },
     {
-      "tag": "#PPL90J0VU",
-      "name": "позитив",
-      "decksUsed": 9,
-      "points": 1700
+      "tag": "#V0CYJJP0Q",
+      "name": "Ｈｅｌｌｆｉｒｅ",
+      "decksUsed": 6,
+      "points": 1000
     },
     {
-      "tag": "#UUV8L0GU2",
-      "name": "magik⅔",
-      "decksUsed": 11,
-      "points": 1900
-    },
-    {
-      "tag": "#L80UL2Q9V",
-      "name": "void",
-      "decksUsed": 11,
-      "points": 1350
-    },
-    {
-      "tag": "#YUP9U8G88",
-      "name": "CrazyDiamond",
+      "tag": "#G0JJVGPYC",
+      "name": "D@ulet_",
       "decksUsed": 12,
-      "points": 2200
+      "points": 2150
     },
     {
-      "tag": "#VCJLPC9GG",
-      "name": "jove",
+      "tag": "#2LQVY809L",
+      "name": "GOODBYE",
+      "decksUsed": 12,
+      "points": 2100
+    },
+    {
+      "tag": "#VQU09G0V8",
+      "name": "medok",
       "decksUsed": 12,
       "points": 2000
     },
     {
-      "tag": "#2YVGR0QGU",
-      "name": "SnaKe230",
-      "decksUsed": 13,
-      "points": 2250
-    },
-    {
-      "tag": "#YL0V9ULYQ",
-      "name": "Жумайсынба",
-      "decksUsed": 13,
-      "points": 1900
-    },
-    {
-      "tag": "#8VPCQ8JG0",
-      "name": "Миочич",
-      "decksUsed": 13,
-      "points": 1800
-    },
-    {
-      "tag": "#8YGYVRUU2",
-      "name": "⚽✨Amirhan",
-      "decksUsed": 14,
-      "points": 1800
+      "tag": "#R99LYG98",
+      "name": "трахтенберг",
+      "decksUsed": 15,
+      "points": 2050
     }
   ]
 }
